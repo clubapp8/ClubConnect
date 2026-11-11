@@ -15,7 +15,7 @@ func TestPlainFormatMatchesOldLogStyle(t *testing.T) {
 	For("").Infof("Club Connect v%s", "0.8")
 	For("psiphon").Info("tunnel established", "level", 1, "note", "two words")
 	want := regexp.MustCompile(`^\d\d:\d\d:\d\d \[warp\] connected via 1\.2\.3\.4:2408\n` +
-		`\d\d:\d\d:\d\d Club Connect v1\.8\n` +
+		`\d\d:\d\d:\d\d Club Connect v0\.8\n` +
 		`\d\d:\d\d:\d\d \[psiphon\] tunnel established level=1 note="two words"\n$`)
 	if !want.Match(buf.Bytes()) {
 		t.Fatalf("unexpected output:\n%s", buf.String())
